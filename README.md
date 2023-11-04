@@ -28,6 +28,9 @@ Q.&nbsp;global.ini(翻訳ファイル)を更新したい
 A.&nbsp;global.ini(翻訳ファイル)を更新する場合は、新しいglobal.iniをバッチファイルと共に配置し、  
 &emsp;通常通り実行してもらえれば更新されます  
   
+Q.&nbsp;日本語化を解除したい  
+A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方法はほぼ同じです)  
+  
 # 免責事項
 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません  
 Star Citizen®、Roberts Space Industries®、Cloud Imperium®はCloud Imperium Rights LLCの登録商標です。  
