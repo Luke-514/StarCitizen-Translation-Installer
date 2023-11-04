@@ -1,43 +1,43 @@
 @echo off
 
 echo --------------------------------------------------------------------------------------------------------------
-echo �Ɛӎ���
-echo �{�o�b�`�t�@�C���̎g�p�ɂ���Ĕ��������A�����Ȃ鑹�Q�ɑ΂��Ă���҂͈�؂̐ӔC�𕉂��܂���
+echo 免責事項
+echo 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません
 echo.
 
-echo ��� 
+echo 作者 
 echo Luke514 Twitter:@rx_luke
 echo --------------------------------------------------------------------------------------------------------------
 echo.
 
 setlocal enabledelayedexpansion
 
-SET /P CHK="���{�ꉻ�����s���܂����H (yes/no)"
+SET /P CHK="日本語化を実行しますか？ (yes/no)"
 
 if /i %CHK%==yes (
   break
 ) else if /i %CHK%==y (
   break
 ) else if /i %CHK%==no (
-  echo �����𒆎~���܂�
+  echo 処理を中止します
   echo.
   pause
   EXIT
 ) else if /i %CHK%==n (
-  echo �����𒆎~���܂�
+  echo 処理を中止します
   echo.
   pause
   EXIT
 ) else (
   echo.
-  echo �\�����Ȃ����������͂���܂���
-  echo �����𒆎~���܂�
+  echo 予期しない文字が入力されました
+  echo 処理を中止します
   echo.
   pause
   EXIT
 )
 
-SET /P CHK="LIVE��PTU�A�ǂ������{�ꉻ���܂����H (live/ptu)"
+SET /P CHK="LIVEかPTU、どちらを日本語化しますか？ (live/ptu)"
 
 if /i %CHK%==live (
   SET PLYVER=LIVE
@@ -49,8 +49,8 @@ if /i %CHK%==live (
   SET PLYVER=PTU
 ) else (
   echo.
-  echo �\�����Ȃ����������͂���܂���
-  echo �����𒆎~���܂�
+  echo 予期しない文字が入力されました
+  echo 処理を中止します
   echo.
   pause
   EXIT
@@ -66,7 +66,7 @@ SET USERCFGPATH=%SCDIR%\user.cfg
 
 if not exist %GLOBALINIPATH% (
   if not exist global.ini (
-    echo ���{�ꉻ�t�@�C����������܂���B�{�o�b�`�t�@�C���Ɠ����t�H���_��global.ini��z�u���āA�ēx���s���Ă��������B
+    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
     pause
     EXIT
   ) else (
@@ -75,7 +75,7 @@ if not exist %GLOBALINIPATH% (
   )
 ) else (
   if not exist global.ini (
-    echo ���{�ꉻ�t�@�C����������܂���B�{�o�b�`�t�@�C���Ɠ����t�H���_��global.ini��z�u���āA�ēx���s���Ă��������B
+    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
     pause
     EXIT
   ) else (
@@ -93,7 +93,7 @@ if exist %USERCFGPATH% (
     echo g_languageAudio = english >> %USERCFGPATH%
 
     if %errorlevel% == 1 (
-      echo g_language�̐ݒ��user.cfg�ɒǋL�ł��܂���ł����B�����𒆎~���܂��B
+      echo g_languageの設定をuser.cfgに追記できませんでした。処理を中止します。
       pause
       EXIT
     )
@@ -104,13 +104,13 @@ if exist %USERCFGPATH% (
   echo g_languageAudio = english >> %USERCFGPATH%
 
   if not exist %USERCFGPATH% (
-    echo user.cfg���쐬�ł��܂���ł����B�����𒆎~���܂��B
+    echo user.cfgを作成できませんでした。処理を中止します。
     pause
     EXIT
   )
 )
 
-echo �������������܂����B
+echo 処理が完了しました。
 
 pause
 EXIT
