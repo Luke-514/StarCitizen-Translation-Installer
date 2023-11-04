@@ -15,9 +15,9 @@ setlocal enabledelayedexpansion
 SET /P CHK="日本語化を実行しますか？ (yes/no)"
 
 if /i %CHK%==yes (
-  break
+  SET MODE=バックアップ
 ) else if /i %CHK%==y (
-  break
+  SET MODE=バックアップ
 ) else if /i %CHK%==no (
   echo 処理を中止します
   echo.
