@@ -70,7 +70,6 @@ if not exist %GLOBALINIPATH% (
     pause
     EXIT
   ) else (
-    echo フォルダ作成とglobal.iniの配置を行います。
     mkdir %SCDIR%\data\Localization\japanese_"(japan)"
     copy /Y global.ini %GLOBALINIPATH% > nul
   )
@@ -80,19 +79,15 @@ if not exist %GLOBALINIPATH% (
     pause
     EXIT
   ) else (
-    echo global.iniの配置を行います。
     copy /Y global.ini %GLOBALINIPATH% > nul
   )
 )
 
 if exist %USERCFGPATH% (
 
-  findstr g_language %USERCFGPATH%
+  findstr g_language %USERCFGPATH% > nul
 
-  if !errorlevel! == 0 (
-    echo user.cfgが存在し、g_languageが設定されています。
-  ) else (
-    echo user.cfgが存在します。g_languageを追記します。
+  if !errorlevel! == 1 (
     echo. >> %USERCFGPATH%
     echo g_language = japanese_^(japan^) >> %USERCFGPATH%
     echo g_languageAudio = english >> %USERCFGPATH%
@@ -105,7 +100,6 @@ if exist %USERCFGPATH% (
   )
 
 ) else (
-  echo user.cfgを作成します。
   echo g_language = japanese_^(japan^) > %USERCFGPATH%
   echo g_languageAudio = english >> %USERCFGPATH%
 
