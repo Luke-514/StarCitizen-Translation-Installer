@@ -88,9 +88,9 @@ if exist %USERCFGPATH% (
   findstr g_language %USERCFGPATH% > nul
 
   if !errorlevel! == 1 (
-    echo.>> %USERCFGPATH%
-    echo g_language = japanese_^(japan^)>> %USERCFGPATH%
-    echo g_languageAudio = english>> %USERCFGPATH%
+    echo. >> %USERCFGPATH%
+    echo g_language = japanese_^(japan^) >> %USERCFGPATH%
+    echo g_languageAudio = english >> %USERCFGPATH%
 
     if %errorlevel% == 1 (
       echo g_languageの設定をuser.cfgに追記できませんでした。処理を中止します。
@@ -100,8 +100,8 @@ if exist %USERCFGPATH% (
   )
 
 ) else (
-  echo g_language = japanese_^(japan^)> %USERCFGPATH%
-  echo g_languageAudio = english>> %USERCFGPATH%
+  echo g_language = japanese_^(japan^) > %USERCFGPATH%
+  echo g_languageAudio = english >> %USERCFGPATH%
 
   if not exist %USERCFGPATH% (
     echo user.cfgを作成できませんでした。処理を中止します。

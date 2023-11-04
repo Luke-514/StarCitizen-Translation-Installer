@@ -12,7 +12,7 @@ echo.
 
 setlocal enabledelayedexpansion
 
-SET /P CHK="日本語化を実行しますか？ (yes/no)"
+SET /P CHK="日本語化を解除しますか？ (yes/no)"
 
 if /i %CHK%==yes (
   break
@@ -37,7 +37,7 @@ if /i %CHK%==yes (
   EXIT
 )
 
-SET /P CHK="LIVEかPTU、どちらを日本語化しますか？ (live/ptu)"
+SET /P CHK="LIVEかPTU、どちらの日本語化を解除しますか？ (live/ptu)"
 
 if /i %CHK%==live (
   SET PLYVER=LIVE
@@ -64,50 +64,20 @@ SET LOCALEDIR=%SCDIR%\data\Localization\japanese_"(japan)"
 SET GLOBALINIPATH=%LOCALEDIR%
 SET USERCFGPATH=%SCDIR%\user.cfg
 
-if not exist %GLOBALINIPATH% (
-  if not exist global.ini (
-    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
-    pause
-    EXIT
-  ) else (
-    mkdir %SCDIR%\data\Localization\japanese_"(japan)"
-    copy /Y global.ini %GLOBALINIPATH% > nul
-  )
-) else (
-  if not exist global.ini (
-    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
-    pause
-    EXIT
-  ) else (
-    copy /Y global.ini %GLOBALINIPATH% > nul
-  )
-)
-
 if exist %USERCFGPATH% (
 
-  findstr g_language %USERCFGPATH% > nul
+  findstr /v "g_language" %USERCFGPATH%> user_cfg.tmp
+  move user_cfg.tmp %USERCFGPATH% > nul
 
   if !errorlevel! == 1 (
-    echo.>> %USERCFGPATH%
-    echo g_language = japanese_^(japan^)>> %USERCFGPATH%
-    echo g_languageAudio = english>> %USERCFGPATH%
-
-    if %errorlevel% == 1 (
-      echo g_languageの設定をuser.cfgに追記できませんでした。処理を中止します。
-      pause
-      EXIT
-    )
-  )
-
-) else (
-  echo g_language = japanese_^(japan^)> %USERCFGPATH%
-  echo g_languageAudio = english>> %USERCFGPATH%
-
-  if not exist %USERCFGPATH% (
-    echo user.cfgを作成できませんでした。処理を中止します。
+    echo 日本語化の解除ができませんでした。処理を中止します。
     pause
     EXIT
   )
+) else (
+  echo 日本語化されていません。処理を中止します。
+  pause
+  EXIT
 )
 
 echo 処理が完了しました。
