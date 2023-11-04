@@ -23,9 +23,6 @@
 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません  
 Star Citizen®、Roberts Space Industries®、Cloud Imperium®はCloud Imperium Rights LLCの登録商標です。  
   
-Use this batch file at your own risk.  
-Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC.  
-  
 # 作者
 Luke514  
 Twitter:@rx_luke  
