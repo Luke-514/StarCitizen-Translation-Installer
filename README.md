@@ -7,6 +7,7 @@
 &emsp;(oldは以前のバージョンです　現行バージョンで問題が発生した際にご利用ください)  
   
 2.&nbsp;任意の場所にglobal.ini(翻訳ファイル)と共に配置します   
+&emsp;(v1.0.3からは自動で最新のglobal.iniを取得してきます)
 &emsp;(global.iniのダウンロード => https://github.com/stdblue/StarCitizenJapaneseResources/releases)  
 <img src="image/image.png" width="80%" />  
   
