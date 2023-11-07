@@ -56,8 +56,6 @@ if /i %CHK%==live (
   EXIT
 )
 
-curl -s https://api.github.com/repos/jgm/pandoc/releases/global.ini -O --ssl-no-revoke
-
 for /f "tokens=*" %%i in ('findstr /v "{ ( ) js: Error libraryFolder ." %APPDATA%\rsilauncher\logs\log.log ^| findstr "\\"') do SET LIBPATH=%%~i
 SET LIBPATH=%LIBPATH:\\=\%
 SET SCDIR="%LIBPATH%\StarCitizen\%PLYVER%"
@@ -95,7 +93,7 @@ if exist %USERCFGPATH% (
     echo g_languageAudio = english>> %USERCFGPATH%
 
     if %errorlevel% == 1 (
-      echo 日本語化の設定をuser.cfgに追記できませんでした。処理を中止します。
+      echo g_languageの設定をuser.cfgに追記できませんでした。処理を中止します。
       pause
       EXIT
     )
