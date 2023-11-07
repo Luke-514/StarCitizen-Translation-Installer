@@ -7,8 +7,8 @@
 &emsp;(oldは以前のバージョンです　現行バージョンで問題が発生した際にご利用ください)  
   
 2.&nbsp;任意の場所にglobal.ini(翻訳ファイル)と共に配置します   
-&emsp;(v1.0.3からは自動で最新のglobal.iniを取得しますので、手動で配置する必要はありません)  
 &emsp;(global.iniのダウンロード => https://github.com/stdblue/StarCitizenJapaneseResources/releases)  
+&emsp;(v1.0.3からは自動で最新のglobal.iniを取得しますので、手動で配置する必要はありません)  
 <img src="image/image.png" width="80%" />  
   
 3.&nbsp;バッチファイルを起動後、日本語化するかどうか聞かれるので、YESかNOを入力してください(y、nでも可)  
