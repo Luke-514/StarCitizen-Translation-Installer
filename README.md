@@ -28,6 +28,7 @@ A.&nbsp;user.cfgが配置されている場合は日本語化に必要な情報�
 Q.&nbsp;global.ini(翻訳ファイル)を更新したい  
 A.&nbsp;global.ini(翻訳ファイル)を更新する場合は、新しいglobal.iniをバッチファイルと共に配置し、  
 &emsp;通常通り実行してもらえれば更新されます  
+&emsp;(v1.0.3からは自動で最新のglobal.iniを取得しますので、手動で配置する必要はありません)  
   
 Q.&nbsp;日本語化を解除したい  
 A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方法はほぼ同じです)  
