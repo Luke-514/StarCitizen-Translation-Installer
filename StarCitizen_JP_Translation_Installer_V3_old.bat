@@ -56,19 +56,6 @@ if /i %CHK%==live (
   EXIT
 )
 
-SET "counter=0"
-curl -s https://api.github.com/repos/stdblue/StarCitizenJapaneseResources/releases --ssl-no-revoke | findstr "browser_download_url" | findstr "global.ini" > scjtdownload.lst
-
-for /f "tokens=2" %%A in (scjtdownload.lst) do (
-    SET /a "counter+=1"
-    if !counter! equ 1 (
-        SET "url=%%~A"
-        curl -s -L !url! -O --ssl-no-revoke
-    )
-)
-
-del /Q scjtdownload.lst
-
 for /f "tokens=*" %%i in ('findstr /v "{ ( ) js: Error libraryFolder ." %APPDATA%\rsilauncher\logs\log.log ^| findstr "\\"') do SET LIBPATH=%%~i
 SET LIBPATH=%LIBPATH:\\=\%
 SET SCDIR="%LIBPATH%\StarCitizen\%PLYVER%"
@@ -79,20 +66,20 @@ SET USERCFGPATH=%SCDIR%\user.cfg
 
 if not exist %GLOBALINIPATH% (
   if not exist global.ini (
-    echo 日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
     pause
     EXIT
   ) else (
     mkdir %SCDIR%\data\Localization\japanese_"(japan)"
-    move /Y global.ini %GLOBALINIPATH% > nul
+    copy /Y global.ini %GLOBALINIPATH% > nul
   )
 ) else (
   if not exist global.ini (
-    echo 日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo 日本語化ファイルが見つかりません。本バッチファイルと同じフォルダにglobal.iniを配置して、再度実行してください。
     pause
     EXIT
   ) else (
-    move /Y global.ini %GLOBALINIPATH% > nul
+    copy /Y global.ini %GLOBALINIPATH% > nul
   )
 )
 
@@ -106,7 +93,7 @@ if exist %USERCFGPATH% (
     echo g_languageAudio = english>> %USERCFGPATH%
 
     if %errorlevel% == 1 (
-      echo 設定をuser.cfgに追記できませんでした。処理を中止します。
+      echo g_languageの設定をuser.cfgに追記できませんでした。処理を中止します。
       pause
       EXIT
     )
