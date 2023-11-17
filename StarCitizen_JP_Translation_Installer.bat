@@ -19,19 +19,18 @@ if /i %CHK%==yes (
 ) else if /i %CHK%==y (
   break
 ) else if /i %CHK%==no (
-  echo 処理を中止します
+  echo [Exit]処理を中止します
   echo.
   pause
   EXIT
 ) else if /i %CHK%==n (
-  echo 処理を中止します
+  echo [Exit]処理を中止します
   echo.
   pause
   EXIT
 ) else (
   echo.
-  echo 予期しない文字が入力されました
-  echo 処理を中止します
+  echo [Error]予期しない文字が入力されました。処理を中止します。
   echo.
   pause
   EXIT
@@ -48,9 +47,7 @@ if /i %CHK%==live (
 ) else if /i %CHK%==p (
   SET PLYVER=PTU
 ) else (
-  echo.
-  echo 予期しない文字が入力されました
-  echo 処理を中止します
+  echo [Error]予期しない文字が入力されました。処理を中止します。
   echo.
   pause
   EXIT
@@ -69,7 +66,9 @@ for /f "tokens=2" %%A in (scjtdownload.lst) do (
 
 del /Q scjtdownload.lst
 
-for /f "tokens=*" %%i in ('findstr /v "{ ( ) js: Error libraryFolder ." %APPDATA%\rsilauncher\logs\log.log ^| findstr "\\"') do SET LIBPATH=%%~i
+for /f "tokens=*" %%i in ('findstr "libraryFolder" %APPDATA%\rsilauncher\logs\log.log') do SET LIBPATH=%%~i
+SET LIBPATH=%LIBPATH:libraryFolder": "=%
+SET LIBPATH=%LIBPATH:",=%
 SET LIBPATH=%LIBPATH:\\=\%
 SET SCDIR="%LIBPATH%\StarCitizen\%PLYVER%"
 
@@ -79,7 +78,8 @@ SET USERCFGPATH=%SCDIR%\user.cfg
 
 if not exist %GLOBALINIPATH% (
   if not exist global.ini (
-    echo 日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo [Error]日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo.
     pause
     EXIT
   ) else (
@@ -88,7 +88,8 @@ if not exist %GLOBALINIPATH% (
   )
 ) else (
   if not exist global.ini (
-    echo 日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo [Error]日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo.
     pause
     EXIT
   ) else (
@@ -106,7 +107,8 @@ if exist %USERCFGPATH% (
     echo g_languageAudio = english>> %USERCFGPATH%
 
     if %errorlevel% == 1 (
-      echo 設定をuser.cfgに追記できませんでした。処理を中止します。
+      echo [Error]設定をuser.cfgに追記できませんでした。処理を中止します。
+      echo.
       pause
       EXIT
     )
@@ -117,13 +119,15 @@ if exist %USERCFGPATH% (
   echo g_languageAudio = english>> %USERCFGPATH%
 
   if not exist %USERCFGPATH% (
-    echo user.cfgを作成できませんでした。処理を中止します。
+    echo [Error]user.cfgを作成できませんでした。処理を中止します。
+    echo.
     pause
     EXIT
   )
 )
 
-echo 処理が完了しました。
+echo [Success]処理が完了しました。
+echo.
 
 pause
 EXIT
