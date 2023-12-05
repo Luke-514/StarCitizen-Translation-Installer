@@ -26,10 +26,10 @@ Q.&nbsp;global.ini(翻訳ファイル)を更新したい。
 A.&nbsp;通常通りにバッチファイルを実行すると、最新版のglobal.iniを取得し、更新します。  
   
 Q.&nbsp;日本語化を解除したい  
-A.&nbsp;StarCitizen_JP_Translation_Installer_UTF8.batをお使いください  
+A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方法はほぼ同じです)  
   
 Q.&nbsp;バッチを起動すると文字化けしている  
-A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方法はほぼ同じです)  
+A.&nbsp;StarCitizen_JP_Translation_Installer_UTF8.batをお使いください  
   
 # 免責事項
 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません。  
