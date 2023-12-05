@@ -31,6 +31,11 @@ A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方
 Q.&nbsp;バッチを起動すると文字化けしている  
 A.&nbsp;StarCitizen_JP_Translation_Installer_UTF8.batをお使いください  
   
+Q.&nbsp;バッチを起動するとWindows Defenderに止められる  
+A.&nbsp;詳細情報を押すと出てくる実行ボタンを押してください  
+<img src="image/defender.jpg" width="40%" />
+<img src="image/defender_accept.jpg" width="40%" />  
+  
 # 免責事項
 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません。  
 Star Citizen®、Roberts Space Industries®、Cloud Imperium®はCloud Imperium Rights LLCの登録商標です。  
