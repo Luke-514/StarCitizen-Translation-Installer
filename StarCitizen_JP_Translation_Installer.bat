@@ -53,18 +53,20 @@ if /i %CHK%==live (
   EXIT
 )
 
-SET "counter=0"
-curl -s https://api.github.com/repos/stdblue/StarCitizenJapaneseResources/releases --ssl-no-revoke | findstr "browser_download_url" | findstr "global.ini" > scjtdownload.lst
+if not exist global.ini (
+  SET "counter=0"
+  curl -s https://api.github.com/repos/stdblue/StarCitizenJapaneseResources/releases --ssl-no-revoke | findstr "browser_download_url" | findstr "global.ini" > scjtdownload.lst
 
-for /f "tokens=2" %%A in (scjtdownload.lst) do (
-    SET /a "counter+=1"
-    if !counter! equ 1 (
-        SET "url=%%~A"
-        curl -s -L !url! -O --ssl-no-revoke
-    )
+  for /f "tokens=2" %%A in (scjtdownload.lst) do (
+      SET /a "counter+=1"
+      if !counter! equ 1 (
+          SET "url=%%~A"
+          curl -s -L !url! -O --ssl-no-revoke
+      )
+  )
+
+  del /Q scjtdownload.lst
 )
-
-del /Q scjtdownload.lst
 
 for /f "tokens=*" %%i in ('findstr "libraryFolder" %APPDATA%\rsilauncher\logs\log.log') do SET LIBPATH=%%~i
 SET LIBPATH=%LIBPATH:libraryFolder": "=%
@@ -78,7 +80,7 @@ SET USERCFGPATH=%SCDIR%\user.cfg
 
 if not exist %GLOBALINIPATH% (
   if not exist global.ini (
-    echo [Error]日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo [Error]日本語化ファイルがありません。処理を中止します。
     echo.
     pause
     EXIT
@@ -88,7 +90,7 @@ if not exist %GLOBALINIPATH% (
   )
 ) else (
   if not exist global.ini (
-    echo [Error]日本語化ファイルがダウンロードできませんでした。処理を中止します。
+    echo [Error]日本語化ファイルがありません。処理を中止します。
     echo.
     pause
     EXIT
