@@ -38,8 +38,8 @@ A.&nbsp;詳細情報を押すと出てくる実行ボタンを押してくださ
   
 Q.&nbsp;任意のglobal.iniを導入したい(テストバージョンなど)  
 A.&nbsp;バッチファイルと同じフォルダに任意のglobal.iniを配置してバッチを起動してください  
-<img src="image/withglobal.png" width="100%" />
-
+  
+  
 # 免責事項
 本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません。  
 Star Citizen®、Roberts Space Industries®、Cloud Imperium®はCloud Imperium Rights LLCの登録商標です。  
