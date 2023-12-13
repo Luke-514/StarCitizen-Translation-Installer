@@ -41,7 +41,7 @@ A.&nbsp;バッチファイルと同じフォルダに任意のglobal.iniを配�
 <img src="image/withglobal.png" width="80%" />  
   
 # 免責事項
-本バッチファイルの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません。  
+本ツールの使用によって発生した、いかなる損害に対しても作者は一切の責任を負いません。  
 Star Citizen®、Roberts Space Industries®、Cloud Imperium®はCloud Imperium Rights LLCの登録商標です。  
   
 # 作者
@@ -51,4 +51,5 @@ Star Citizen紹介コード(referral code) → 【STAR-9YPT-ZV5J】
   
 # Special Thanks
 NTKestrel  
-popolilo
+popolilo  
+MoMoShrine
