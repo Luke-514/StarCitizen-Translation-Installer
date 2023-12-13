@@ -4,7 +4,6 @@
   
 # 使い方
 1.&nbsp;[Releases](https://github.com/Luke-514/StarCitizen-Translation-Installer/releases)からバッチファイル(StarCitizen_JP_Translation_Installer.bat)をダウンロードします。  
-&emsp;(oldは以前のバージョンです　現行バージョンで問題が発生した際にご利用ください)  
   
 2.&nbsp;任意の場所でバッチファイルを起動後、日本語化するかどうか聞かれるので、YESかNOを入力してください。  
 &emsp;(y、nでも可)  
