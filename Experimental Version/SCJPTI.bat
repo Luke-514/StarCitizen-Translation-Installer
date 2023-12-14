@@ -2,8 +2,7 @@
 setlocal enabledelayedexpansion
 
 if "%1" == "" (
-  echo EXIT
-  pause
+  start StarCitizen_JP_Translation_Installer.exe
   exit
 )
 
