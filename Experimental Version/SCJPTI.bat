@@ -77,24 +77,15 @@ if "%LOGIC%" == "Set" (
 
 if "%LOGIC%" == "Remove" (
   if exist %USERCFGPATH% (
+    findstr /r /c:"g_language" %USERCFGPATH% > nul
 
-    set JUDGE=FALSE
-
-    findstr "g_language" %USERCFGPATH% > nul
     if !errorlevel! == 1 (
       exit 5
     ) else (
-      findstr /v "g_language" %USERCFGPATH%> user_cfg.tmp
-      EL=!errorlevel!
+      findstr /v /r /c:"^$" /c:"g_language" %USERCFGPATH% > user_cfg.tmp
       move user_cfg.tmp %USERCFGPATH% > nul
 
       if !errorlevel! == 1 (
-        set JUDGE=TRUE
-      ) else if !EL! == 1 (
-        set JUDGE=TRUE
-      )
-
-      if !JUDGE! == TRUE (
         exit 4
       )
     )
