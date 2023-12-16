@@ -19,20 +19,19 @@ if /i %CHK%==yes (
 ) else if /i %CHK%==y (
   break
 ) else if /i %CHK%==no (
-  echo 処理を中止します
   echo.
+  echo 処理を中止します
   pause
   EXIT
 ) else if /i %CHK%==n (
-  echo 処理を中止します
   echo.
+  echo 処理を中止します
   pause
   EXIT
 ) else (
   echo.
   echo 予期しない文字が入力されました
   echo 処理を中止します
-  echo.
   pause
   EXIT
 )
@@ -51,7 +50,6 @@ if /i %CHK%==live (
   echo.
   echo 予期しない文字が入力されました
   echo 処理を中止します
-  echo.
   pause
   EXIT
 )
@@ -67,22 +65,32 @@ SET GLOBALINIPATH=%LOCALEDIR%
 SET USERCFGPATH=%SCDIR%\user.cfg
 
 if exist %USERCFGPATH% (
-
-  findstr /v "g_language" %USERCFGPATH%> user_cfg.tmp
-  move user_cfg.tmp %USERCFGPATH% > nul
+  findstr /r /c:"g_language" %USERCFGPATH% > nul
 
   if !errorlevel! == 1 (
-    echo 日本語化の解除ができませんでした。処理を中止します。
+    echo.
+    echo 日本語化されていません。処理を中止します。
     pause
     EXIT
+  ) else (
+    findstr /v /r /c:"^$" /c:"g_language" %USERCFGPATH% > user_cfg.tmp
+    move user_cfg.tmp %USERCFGPATH% > nul
+
+    if !errorlevel! == 1 (
+      echo.
+      echo 日本語化の解除ができませんでした。処理を中止します。
+      pause
+      EXIT
+    )
   )
 ) else (
+  echo.
   echo 日本語化されていません。処理を中止します。
   pause
   EXIT
 )
 
+echo.
 echo 処理が完了しました。
-
 pause
 EXIT
