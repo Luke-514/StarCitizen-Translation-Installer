@@ -1,5 +1,5 @@
 # これは何をするためのもの？
-スターシチズンを日本語化するための[日本語化ファイル](https://github.com/stdblue/StarCitizenJapaneseResources)配置場所や、設定方法が分からないという方でも  
+スターシチズンを日本語化するための[日本語化ファイル](https://github.com/stdblue/StarCitizenJapaneseResources)の配置場所や、設定方法が分からないという方でも  
 簡単に日本語化できるようにする日本語化支援ツールです。  
 [GUI版はこちら](https://github.com/Luke-514/StarCitizen-Translation-Installer-GUI)  
   
