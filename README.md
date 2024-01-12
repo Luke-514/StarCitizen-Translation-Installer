@@ -51,5 +51,5 @@ Star Citizen紹介コード(referral code) → 【STAR-9YPT-ZV5J】
   
 # Special Thanks
 NTKestrel  
-popolilo  
+Popolilo  
 MoMoShrine
