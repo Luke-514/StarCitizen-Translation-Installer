@@ -19,19 +19,18 @@ if /i %CHK%==yes (
 ) else if /i %CHK%==y (
   break
 ) else if /i %CHK%==no (
-  echo [Exit]処理を中止します
   echo.
+  echo [Exit]処理を中止します
   pause
   EXIT
 ) else if /i %CHK%==n (
-  echo [Exit]処理を中止します
   echo.
+  echo [Exit]処理を中止します
   pause
   EXIT
 ) else (
   echo.
   echo [Error]予期しない文字が入力されました。処理を中止します。
-  echo.
   pause
   EXIT
 )
@@ -47,24 +46,18 @@ if /i %CHK%==live (
 ) else if /i %CHK%==p (
   SET PLYVER=PTU
 ) else (
-  echo [Error]予期しない文字が入力されました。処理を中止します。
   echo.
+  echo [Error]予期しない文字が入力されました。処理を中止します。
   pause
   EXIT
 )
 
 if not exist global.ini (
-  SET "counter=0"
-  curl -s https://api.github.com/repos/stdblue/StarCitizenJapaneseResources/releases --ssl-no-revoke | findstr "browser_download_url" | findstr "global.ini" > scjtdownload.lst
-
+  curl -s https://api.github.com/repos/stdblue/StarCitizenJapaneseResources/releases/latest --ssl-no-revoke | findstr "browser_download_url" | findstr "global.ini" > scjtdownload.lst
   for /f "tokens=2" %%A in (scjtdownload.lst) do (
-      SET /a "counter+=1"
-      if !counter! equ 1 (
-          SET "url=%%~A"
-          curl -s -L !url! -O --ssl-no-revoke
-      )
+    SET "url=%%~A"
+    curl -s -L !url! -O --ssl-no-revoke
   )
-
   del /Q scjtdownload.lst
 )
 
@@ -80,8 +73,8 @@ SET USERCFGPATH=%SCDIR%\user.cfg
 
 if not exist %GLOBALINIPATH% (
   if not exist global.ini (
-    echo [Error]日本語化ファイルがありません。処理を中止します。
     echo.
+    echo [Error]日本語化ファイルがありません。処理を中止します。
     pause
     EXIT
   ) else (
@@ -90,8 +83,8 @@ if not exist %GLOBALINIPATH% (
   )
 ) else (
   if not exist global.ini (
-    echo [Error]日本語化ファイルがありません。処理を中止します。
     echo.
+    echo [Error]日本語化ファイルがありません。処理を中止します。
     pause
     EXIT
   ) else (
@@ -109,8 +102,8 @@ if exist %USERCFGPATH% (
     echo g_languageAudio = english>> %USERCFGPATH%
 
     if %errorlevel% == 1 (
-      echo [Error]設定をuser.cfgに追記できませんでした。処理を中止します。
       echo.
+      echo [Error]設定をuser.cfgに追記できませんでした。処理を中止します。
       pause
       EXIT
     )
@@ -121,15 +114,14 @@ if exist %USERCFGPATH% (
   echo g_languageAudio = english>> %USERCFGPATH%
 
   if not exist %USERCFGPATH% (
-    echo [Error]user.cfgを作成できませんでした。処理を中止します。
     echo.
+    echo [Error]user.cfgを作成できませんでした。処理を中止します。
     pause
     EXIT
   )
 )
 
-echo [Success]処理が完了しました。
 echo.
-
+echo [Success]処理が完了しました。
 pause
 EXIT
