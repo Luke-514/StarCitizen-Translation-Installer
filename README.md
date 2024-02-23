@@ -24,7 +24,7 @@ A.&nbsp;user.cfgが配置されている場合は日本語化に必要な情報�
 &emsp;(既に必要な情報が記載されていれば何もしません)  
   
 Q.&nbsp;global.ini(翻訳ファイル)を更新したい。  
-A.&nbsp;通常通りにバッチファイルを実行すると、最新版のglobal.iniを取得し、更新します。  
+A.&nbsp;通常通りに日本語化を実行すると、最新版のglobal.iniを取得し、更新します。  
   
 Q.&nbsp;日本語化を解除したい  
 A.&nbsp;StarCitizen_JP_Translation_Remover.batをお使いください(操作方法はほぼ同じです)  
