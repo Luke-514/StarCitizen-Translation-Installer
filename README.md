@@ -5,7 +5,7 @@
 \>\>\>[画面付き(GUI)版の支援ツールはこちら](https://github.com/Luke-514/StarCitizen-Translation-Installer-GUI)<<<  
   
 # 使い方
-1.&nbsp;[Releases](https://github.com/Luke-514/StarCitizen-Translation-Installer/releases)からバッチファイル(StarCitizen_JP_Translation_Installer.bat)をダウンロードします。  
+1.&nbsp;[Releases](https://github.com/Luke-514/StarCitizen-Translation-Installer/releases/latest)からバッチファイル(StarCitizen_JP_Translation_Installer.bat)をダウンロードします。  
   
 2.&nbsp;任意の場所でバッチファイルを起動後、日本語化するかどうか聞かれるので、YESかNOを入力してください。  
 &emsp;(y、nでも可)  
